@@ -1,0 +1,36 @@
+ALGORITHM sommeelementdistinct
+
+VAR
+    sum_distinct , i , j : = INTEGER
+    set1 : ARRAY_OF INTEGER[4];
+    set2 : ARRAY_OF INTEGER[5];
+    verify ; BOOLEAN;
+BEGIN
+    set1 := [3, 1, 7, 9]
+    set2 := [2, 4, 1, 9, 3]
+    sum_distinct = 0;
+    verify:= true // l'élement est distinct
+
+    FOR i FROM 0 TO set1.length-1 STEP 1  DO
+        FOR j FROM 0 TO set2.length-1 STEP 1  DO
+            IF (set1[i] === set2[j]) THEN
+                verify := false; // l'élement n'est pas distinct
+            END_IF
+            IF (verify === true) THEN
+                sum_distinct += set1[i] // sum_distinct + set2[j]
+            END_IF
+        END_FOR
+    END_FOR
+    FOR j FROM 0 TO set2.length-1 STEP 1  DO
+        FOR i FROM 0 TO set1.length-1 STEP 1  DO
+            IF (set2[j] === set1[i]) THEN
+                verify := false; // l'élement n'est pas distinct
+            END_IF
+            IF (verify === true) THEN
+                sum_distinct += set2[j] // sum_distinct + set1[i]
+            END_IF
+        END_FOR
+    END_FOR
+    write ( "la somme des elements distinct est" , sum_distinct)
+
+END

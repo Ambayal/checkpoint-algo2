@@ -1,0 +1,30 @@
+ALGORITHM dot_product
+VAR
+    n, produit_scalaire : INTEGER
+    v1, v2 : ARRAY_OF [n];
+BEGIN
+    produit_scalaire := PROCEDURE dot_product_(set1 : ARRAY_OF INTEGER[1..100], set2: ARRAY_OF INTEGER[1..100];)
+    VAR
+        i, dot_product : INTEGER
+    BEGIN
+        FOR i FROM 0 TO set1.length STEP 1 DO
+            dot_product := dot_product+(set1[i]*set2[i])
+        END_FOR
+        write(dot_product)
+    END
+    write("donnez la taille des vecteurs")
+    read(n)
+    FOR i FROM 0 TO n STEP 1 DO
+        write ("donnez l'element du vecteur 1 à la position" ,i)
+        read(v1[i])
+        write ("en suite donnez l'element du vecteur 2 à la position" ,i)
+        read(v2[i])
+    END_FOR
+
+    produit_scalaire := dot_product_(v1,v2)
+    IF (produit_scalaire === 0) THEN
+        write("les deux vecteurs sont orthogonaux")
+        ELSE
+        write("les deux vecteurs ne sont pas orthogonaux")
+    END_IF
+END
